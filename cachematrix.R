@@ -22,9 +22,10 @@
 ## The object returned by `makeCacheMatrix` is actually a list
 ## of functions (get, set, getsolve, and setsolve). The `set` and
 ## `setsolve` functions use the `<<-` operator to set the values
-## of `x` (the original matrix) and `s` (the inverse) in a parent
-## environment. R's lexical scoping allows the `get` and `getsolve`
-## functions to find the values saved in `x` and `s`.
+## of `x` (the original matrix) and `s` (the inverse) in the parent
+## environment defined by makeCacheMatrix. R's lexical scoping
+## allows the `get` and `getsolve` functions to find the values
+## of `x` and `s` that are saved in makeCacheMatrix's environment.
 
 makeCacheMatrix <- function(x = matrix()) {
     s <- NULL
